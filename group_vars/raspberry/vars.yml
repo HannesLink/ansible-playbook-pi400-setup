@@ -8,12 +8,12 @@ users:
     uid: 1005
     gid: 1005
     password: "{{ vault_simon_password }}"
-    home: /home/simon
+    home: "{{ auto_homes }}/simon"
   - name: daniel
     uid: 1006
     gid: 1006
     password: "{{ vault_daniel_password }}"
-    home: /home/daniel
+    home: "{{ auto_homes }}/daniel"
 
 ntpservers:
   - fritz.box

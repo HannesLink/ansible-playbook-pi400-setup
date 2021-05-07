@@ -22,4 +22,3 @@
     name: autofs
     enabled: true
     state: started
-

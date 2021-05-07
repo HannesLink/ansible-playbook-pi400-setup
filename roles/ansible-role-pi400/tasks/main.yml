@@ -1,24 +1,3 @@
 ---
-- name: Initial Task
-  debug:
-    var: users
-
-- name: Add all groups
-  ansible.builtin.group:
-    name: '{{ userdata.name }}'
-    gid: '{{ userdata.gid }}'
-  loop: '{{ users | map(attribute="name") | list }}'
-  vars:
-    userdata: '{{ users | selectattr("name", "equalto", item) | first }}'
-
-- name: Add all users
-  ansible.builtin.user:
-    name: '{{ userdata.name }}'
-    home: '{{ userdata.home }}'
-    uid: '{{ userdata.uid }}'
-    password: '{{ userdata.password }}'
-    group: '{{ userdata.name }}'
-    groups: '{{ additional_groups }}'
-  loop: '{{ users | map(attribute="name") | list }}'
-  vars:
-    userdata: '{{ users | selectattr("name", "equalto", item) | first }}'
+- include_tasks: users.yml
+- include_tasks: autofs.yml

@@ -1,0 +1,8 @@
+---
+users:
+  - name: simon
+    password: "{{ vault_simon_password }}"
+    home: /home/qnap/simon
+  - name: daniel
+    password: "{{ vault_daniel_password }}"
+    home: /home/qnap/simon

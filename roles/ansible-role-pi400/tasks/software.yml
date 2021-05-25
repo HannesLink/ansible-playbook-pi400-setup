@@ -1,0 +1,7 @@
+---
+- name: Install all required Software Packages
+  apt:
+    name: '{{ software_to_install }}'
+    state: present
+    update_cache: true
+

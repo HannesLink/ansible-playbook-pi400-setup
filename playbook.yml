@@ -1,0 +1,5 @@
+---
+- name: Setup PI400 automatically for kids needs
+  hosts: pi400
+  roles:
+    - ansible-role-pi400

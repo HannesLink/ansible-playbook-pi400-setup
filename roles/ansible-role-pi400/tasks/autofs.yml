@@ -1,0 +1,24 @@
+---
+- name: Add directory for automounted homes
+  ansible.builtin.file:
+    path: '{{ auto_homes }}'
+    state: directory
+    mode: '0755'
+
+- name: Deploy Template for autofs
+  ansible.builtin.template:
+    src: home.autofs.js
+    dest: /etc/auto.master.d/home.autofs
+    mode: '0644'
+
+- name: Deploy Template for autofs.map
+  ansible.builtin.template:
+    src: home.map.j2
+    dest: '{{ auto_map }}'
+    mode: '0644'
+
+- name: Enable autofs Daemon
+  ansible.builtin.systemd:
+    name: autofs
+    enabled: true
+    state: started

@@ -1,0 +1,25 @@
+---
+auto_homes: /home/qnap
+auto_map: /etc/home.map
+nfsshare: "qnap:/homes"
+
+users:
+  - name: simon
+    uid: 1005
+    gid: 1005
+    password: "{{ vault_simon_password }}"
+    home: "{{ auto_homes }}/simon"
+  - name: daniel
+    uid: 1006
+    gid: 1006
+    password: "{{ vault_daniel_password }}"
+    home: "{{ auto_homes }}/daniel"
+
+ntpservers:
+  - fritz.box
+
+additional_groups:
+  - lpadmin
+  - bluetooth
+  - dialout
+  - netdev
